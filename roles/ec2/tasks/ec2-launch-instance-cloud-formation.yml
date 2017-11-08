@@ -1,0 +1,18 @@
+- name: launch rhel ec2 instance via cloudformation 
+  cloudformation:
+    stack_name: "{{ cf_stack_name }}"
+    state: "{{ cf_state }}"
+    region: "{{ cf_region }}"
+    disable_rollback: "{{ cf_rollback }}"
+    template_url: "{{ cf_template_url }}"
+    template_parameters:
+      KeyPairName: "{{ tmp_key_name }}"
+      LinuxAMI: "{{ tmp_linux_ami }}"
+      InstanceType: "{{ tmp_instance_type }}"
+      SubnetID: "{{ tmp_subnet_id }}"
+      InstanceName: "{{ tmp_instance_name }}"
+      SecurityGroup: "{{ tmp_security_group }}"
+      VolumeSize: "{{ tmp_volume_size }}"
+    tags: 
+      group: sg-rhel-dev
+  tags: ec2-instance-cloud-formation

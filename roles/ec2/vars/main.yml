@@ -1,0 +1,11 @@
+
+cf_stack_name: ansible-stack
+cf_region: ap-southeast-1a
+cf_rollback: false
+cf_template_url: "https://s3.us-east-2.amazonaws.com/gpc-cf-templates/linux_base_se.yml"
+tmp_key_name: ansible-test-keypair
+tmp_disk_type: ephemeral
+tmp_instance_type: m1.small
+tmp_cluster_size: 3
+
+

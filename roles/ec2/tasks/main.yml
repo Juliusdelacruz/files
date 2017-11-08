@@ -1,0 +1,2 @@
+#tasks:
+#- include_tasks: ec2-launch-instance-cloud-formation.yml

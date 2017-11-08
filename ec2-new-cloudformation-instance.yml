@@ -1,0 +1,23 @@
+---
+#  This playbook creates a new rhel ec2 instance using cloud formation template
+
+- name: launce new instance from cloud formation template
+  hosts: localhost
+  tasks:
+     - include_tasks: roles/ec2/tasks/ec2-launch-instance-cloud-formation.yml
+       vars: 
+        cf_stack_name: "ansible-tower"
+        cf_state: "present"
+        cf_region: "ap-southeast-1"
+        cf_rollback: true
+        cf_template_url: "https://s3.us-east-2.amazonaws.com/gpc-cf-templates/linux_base_se.yml"
+        tmp_key_name: "ansbile-test-keypair"
+        tmp_linux_ami: "ami-0797ea64"
+        tmp_subnet_id: "subnet-799d900f"
+        tmp_instance_name: "ansible_tower"
+        tmp_instance_type: "t2.small"
+        tmp_security_group: "sg-da5635bc"
+        tmp_volume_size: 20
+   
+        
+
